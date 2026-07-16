@@ -69,21 +69,49 @@ h2{
 
 /* ---------- Projects ---------- */
 
-.project{
-    padding:50px 0;
-    border-bottom:1px solid #ddd;
+/* ---------- Projects ---------- */
+
+.project-card{
+    margin-bottom:100px;
 }
 
-.project h3{
+.project-card a{
+    display:block;
+    color:#111;
+    text-decoration:none;
+}
+
+.project-card img{
+    display:block;
+    width:100%;
+    height:auto;
+    object-fit:cover;
+
+    transition:opacity 0.25s ease;
+}
+
+.project-info{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+
+    padding-top:18px;
+}
+
+.project-info h3{
     font-size:22px;
     font-weight:500;
-    margin-bottom:10px;
+    letter-spacing:0;
 }
 
-.project p{
-    color:#666;
-    font-size:17px;
+.project-info p{
+    font-size:15px;
     font-weight:400;
+    color:#666;
+}
+
+.project-card a:hover img{
+    opacity:0.75;
 }
 
 /* ---------- About & Contact ---------- */
@@ -170,23 +198,28 @@ h2{
 
 <section id="projects">
 
-    <h2>Projects</h2>
+    <h2>PROJECTS</h2>
 
-    <div class="project">
+    <article class="project-card">
 
-        <h3>Project 01</h3>
+        <a href="parasitic-architecture.html">
 
-        <p>Coming Soon</p>
+            <img
+                src="images/thecocoon-cover.jpg"
+                alt="Parasitic Architecture Program"
+            >
 
-    </div>
+            <div class="project-info">
 
-    <div class="project">
+                <h3>The Cocoon</h3>
 
-        <h3>Project 02</h3>
+                <p>2025</p>
 
-        <p>Coming Soon</p>
+            </div>
 
-    </div>
+        </a>
+
+    </article>
 
 </section>
 
