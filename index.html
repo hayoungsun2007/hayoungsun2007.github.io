@@ -21,7 +21,6 @@ html{
 }
 
 body{
-
     font-family:Helvetica, Arial, sans-serif;
     background:white;
     color:#111;
@@ -30,7 +29,6 @@ body{
 /* ---------- Landing ---------- */
 
 .hero{
-
     height:100vh;
 
     display:flex;
@@ -41,7 +39,6 @@ body{
 }
 
 .hero a{
-
     text-decoration:none;
     color:#111;
 
@@ -49,66 +46,110 @@ body{
     font-weight:500;
     letter-spacing:2px;
 
-    transition:0.25s;
+    transition:opacity 0.25s;
 }
 
 .hero a:hover{
-
     opacity:0.4;
 }
 
-/* ---------- Sections ---------- */
+/* ---------- General Sections ---------- */
 
 section{
-
     min-height:100vh;
-
     padding:80px;
 }
 
 h2{
-
     font-size:20px;
-    font-weight:400;
-
+    font-weight:500;
     margin-bottom:60px;
-
     letter-spacing:2px;
 }
 
 /* ---------- Projects ---------- */
 
 .project{
-
     padding:50px 0;
-
     border-bottom:1px solid #ddd;
 }
 
 .project h3{
-
     font-size:24px;
-    font-weight:300;
-
+    font-weight:400;
     margin-bottom:10px;
 }
 
 .project p{
-
     color:#666;
 }
 
-/* ---------- Contact ---------- */
+/* ---------- About & Contact ---------- */
 
-.contact{
-
+.about{
     display:flex;
+    justify-content:space-between;
     align-items:flex-end;
+
+    gap:80px;
 }
 
-.contact p{
+.about-column{
+    width:40%;
+}
 
+.about-column h2{
+    font-size:20px;
+    font-weight:500;
+    letter-spacing:2px;
+    margin-bottom:30px;
+}
+
+.about-column p{
     font-size:18px;
+    font-weight:300;
+    line-height:2;
+    color:#555;
+}
+
+.about-column a{
+    color:#555;
+    text-decoration:none;
+    transition:opacity 0.2s;
+}
+
+.about-column a:hover{
+    opacity:0.45;
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width:700px){
+
+    .hero{
+        padding:30px 24px;
+    }
+
+    .hero a{
+        font-size:24px;
+    }
+
+    section{
+        min-height:auto;
+        padding:70px 24px;
+    }
+
+    .about{
+        min-height:100vh;
+        flex-direction:column;
+        justify-content:flex-end;
+        align-items:flex-start;
+        gap:70px;
+    }
+
+    .about-column{
+        width:100%;
+    }
 }
 
 </style>
@@ -119,57 +160,69 @@ h2{
 
 <div class="hero">
 
-<a href="#projects">
-
-Ha Young Sun
-
-</a>
+    <a href="#projects">
+        Ha Young Sun
+    </a>
 
 </div>
 
 <section id="projects">
 
-<h2>Projects</h2>
+    <h2>Projects</h2>
 
-<div class="project">
+    <div class="project">
 
-<h3>Project 01</h3>
+        <h3>Project 01</h3>
 
-<p>Coming Soon</p>
+        <p>Coming Soon</p>
 
-</div>
+    </div>
 
-<div class="project">
+    <div class="project">
 
-<h3>Project 02</h3>
+        <h3>Project 02</h3>
 
-<p>Coming Soon</p>
+        <p>Coming Soon</p>
 
-</div>
-
-</section>
-
-<section>
-
-<h2>About</h2>
-
-<p>
-Architecture student.<br>
-Designer.<br>
-Researcher.
-</p>
+    </div>
 
 </section>
 
-<section class="contact">
+<section class="about">
 
-<p>
+    <div class="about-column">
 
-Contact<br><br>
+        <h2>ABOUT</h2>
 
-hayoungs2007@gmail.com
+        <p>
+            Architecture Student<br>
+            Researcher<br>
+            Occasional Essayist
+        </p>
 
-</p>
+    </div>
+
+    <div class="about-column">
+
+        <h2>CONTACT</h2>
+
+        <p>
+            <a href="mailto:hayoungs2007@gmail.com">
+                hayoungs2007@gmail.com
+            </a>
+
+            <br>
+
+            <a
+                href="https://www.instagram.com/jalkkeyo/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Instagram ↗
+            </a>
+        </p>
+
+    </div>
 
 </section>
 
