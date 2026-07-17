@@ -78,14 +78,74 @@ header a:hover{
 
 /* ---------- Main Image ---------- */
 
-.project-image{
-    padding:0 80px 100px;
+/* ---------- Image Slider ---------- */
+
+.project-slider{
+    position:relative;
+    margin:0 80px 100px;
+    overflow:hidden;
 }
 
-.project-image img{
+.slides{
+    position:relative;
+    width:100%;
+}
+
+.slide{
+    display:none;
+    width:100%;
+}
+
+.slide.active{
+    display:block;
+    animation:slideFade 0.8s ease;
+}
+
+.slide img{
     display:block;
     width:100%;
     height:auto;
+}
+
+.slider-button{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+
+    width:50%;
+    height:100%;
+
+    border:0;
+    background:transparent;
+
+    color:transparent;
+    font-size:28px;
+
+    cursor:pointer;
+}
+
+.slider-button.previous{
+    left:0;
+    cursor:w-resize;
+}
+
+.slider-button.next{
+    right:0;
+    cursor:e-resize;
+}
+
+.slider-button:focus{
+    outline:none;
+}
+
+@keyframes slideFade{
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
 }
 
 /* ---------- Description ---------- */
@@ -159,8 +219,8 @@ footer a:hover{
         font-size:38px;
     }
 
-    .project-image{
-        padding:0 24px 70px;
+    .project-slider{
+    margin:0 24px 70px;
     }
 
     .project-description{
@@ -213,14 +273,37 @@ footer a:hover{
 
     </section>
 
-    <div class="project-image">
+    <section class="project-slider">
 
-        <img
-            src="images/thecocoon-cover.jpg"
-            alt="The Cocoon"
-        >
+    <div class="slides">
+
+        <div class="slide active">
+            <img src="images/thecocoon-cover.jpg" alt="The Cocoon">
+        </div>
+
+        <div class="slide">
+            <img src="images/thecocoon01.jpg" alt="The Cocoon model">
+        </div>
+
+        <div class="slide">
+            <img src="images/thecocoon02.jpg" alt="The Cocoon detail">
+        </div>
+
+        <div class="slide">
+            <img src="images/thecocoon03.jpg" alt="The Cocoon installation">
+        </div>
 
     </div>
+
+    <button class="slider-button previous" aria-label="Previous image">
+        ←
+    </button>
+
+    <button class="slider-button next" aria-label="Next image">
+        →
+    </button>
+
+</section>
 
 <section class="project-description">
 
@@ -274,7 +357,54 @@ footer a:hover{
     </span>
 
 </footer>
+<script>
 
+const slides = document.querySelectorAll(".slide");
+const previousButton = document.querySelector(".previous");
+const nextButton = document.querySelector(".next");
+
+let currentSlide = 0;
+let autoSlide;
+
+function showSlide(index){
+
+    slides[currentSlide].classList.remove("active");
+
+    currentSlide = (index + slides.length) % slides.length;
+
+    slides[currentSlide].classList.add("active");
+}
+
+function nextSlide(){
+    showSlide(currentSlide + 1);
+}
+
+function previousSlide(){
+    showSlide(currentSlide - 1);
+}
+
+function startAutoSlide(){
+    autoSlide = setInterval(nextSlide, 5000);
+}
+
+function resetAutoSlide(){
+    clearInterval(autoSlide);
+    startAutoSlide();
+}
+
+nextButton.addEventListener("click", function(){
+    nextSlide();
+    resetAutoSlide();
+});
+
+previousButton.addEventListener("click", function(){
+    previousSlide();
+    resetAutoSlide();
+});
+
+startAutoSlide();
+
+</script>
 </body>
 
 </html>
