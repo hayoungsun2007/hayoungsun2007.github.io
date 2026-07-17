@@ -61,7 +61,9 @@ section{
     min-height:100vh;
     padding:80px;
 }
-
+#projects{
+    padding-top:130px;
+}
 h2{
     font-size:18px;
     font-weight:500;
@@ -69,7 +71,7 @@ h2{
     letter-spacing:0.8px;
 }
 
-/* ---------- Projects ---------- */
+
 
 /* ---------- Projects ---------- */
 
@@ -85,19 +87,25 @@ h2{
 
 .project-card img{
     display:block;
-    width:100%;
+
+    width:88%;
+    max-width:1200px;
+
+    margin:0 auto;
+
     height:auto;
     object-fit:cover;
 
     transition:opacity 0.25s ease;
 }
-
 .project-info{
     display:flex;
     justify-content:space-between;
     align-items:baseline;
 
-    margin-top:8px;
+    width:88%;
+    max-width:1200px;
+    margin-top:8px auto 0;
 }
 
 .project-info h3{
@@ -131,7 +139,8 @@ h2{
     display:flex;
     justify-content:space-between;
     align-items:flex-start;
-
+    min-height:auto;
+    padding-bottom:20px;
     gap:80px;
 }
 
@@ -179,14 +188,18 @@ h2{
         min-height:auto;
         padding:70px 24px;
     }
+    .project-card img{
+        width:100%;
+    }
 
     .about{
-        min-height:100vh;
-        flex-direction:column;
-        justify-content:flex-end;
-        align-items:flex-start;
-        gap:70px;
-    }
+    min-height:auto;
+    flex-direction:column;
+    justify-content:flex-start;
+    align-items:flex-start;
+    gap:70px;
+    padding-bottom:20px;
+}
 
     .about-column{
         width:100%;
