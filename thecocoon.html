@@ -105,7 +105,7 @@ header a:hover{
 .slide img{
     display:block;
 
-    max-width:80%;
+    max-width:70%;
     max-height:75vh;
 
     width:auto;
@@ -149,31 +149,29 @@ header a:hover{
 }
 
 
-}
-
 /* ---------- Description ---------- */
 
 .project-description{
-    display:grid;
-    grid-template-columns:1fr 2fr;
-    gap:80px;
-
-    padding:40px 80px 140px;
+    padding:80px 80px 140px;
+    max-width:1000px;
 }
 
 .project-description h2{
+    margin:0 0 55px;
+
     font-size:16px;
     font-weight:500;
 }
 
 .project-description p{
     max-width:760px;
+    margin:0;
 
     font-size:18px;
     line-height:1.7;
 
     color:#222222;
-    font-weight:700;
+    font-weight:800;
 }
 
 .project-description p.materials{
@@ -183,9 +181,9 @@ header a:hover{
     line-height:1.5;
 
     color:#888888;
-
     font-weight:400;
 }
+
 /* ---------- Footer ---------- */
 
 footer{
@@ -389,29 +387,65 @@ footer a:hover{
 
 </footer>
 <script>
-const slider = document.querySelector(".project-slider");
 const slidesTrack = document.querySelector(".slides");
-const slides = document.querySelectorAll(".slide");
+const originalSlides = document.querySelectorAll(".slide");
 const previousButton = document.querySelector(".previous");
 const nextButton = document.querySelector(".next");
 
-let currentSlide = 0;
-let autoSlide;
+const firstClone = originalSlides[0].cloneNode(true);
+const lastClone = originalSlides[originalSlides.length - 1].cloneNode(true);
 
-function showSlide(index){
-    currentSlide = (index + slides.length) % slides.length;
+firstClone.classList.add("first-clone");
+lastClone.classList.add("last-clone");
+
+slidesTrack.appendChild(firstClone);
+slidesTrack.insertBefore(lastClone, originalSlides[0]);
+
+let slides = document.querySelectorAll(".slide");
+let currentSlide = 1;
+let autoSlide;
+let isMoving = false;
+
+function moveToSlide(animate = true){
+    slidesTrack.style.transition = animate
+        ? "transform 0.9s cubic-bezier(0.65, 0, 0.35, 1)"
+        : "none";
 
     slidesTrack.style.transform =
         `translateX(-${currentSlide * 100}%)`;
 }
 
+moveToSlide(false);
+
 function nextSlide(){
-    showSlide(currentSlide + 1);
+    if(isMoving) return;
+
+    isMoving = true;
+    currentSlide++;
+    moveToSlide(true);
 }
 
 function previousSlide(){
-    showSlide(currentSlide - 1);
+    if(isMoving) return;
+
+    isMoving = true;
+    currentSlide--;
+    moveToSlide(true);
 }
+
+slidesTrack.addEventListener("transitionend", function(){
+    if(slides[currentSlide].classList.contains("first-clone")){
+        currentSlide = 1;
+        moveToSlide(false);
+    }
+
+    if(slides[currentSlide].classList.contains("last-clone")){
+        currentSlide = slides.length - 2;
+        moveToSlide(false);
+    }
+
+    isMoving = false;
+});
 
 function startAutoSlide(){
     clearInterval(autoSlide);
