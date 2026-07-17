@@ -76,8 +76,6 @@ header a:hover{
     color:#555555;
 }
 
-/* ---------- Main Image ---------- */
-
 /* ---------- Image Slider ---------- */
 
 .project-slider{
@@ -86,7 +84,10 @@ header a:hover{
     overflow:hidden;
 }
 
-
+.slides{
+    display:flex;
+    width:100%;
+}
 .slide{
     flex:0 0 100%;
     min-width:100%;
@@ -218,12 +219,14 @@ footer a:hover{
     .project-slider{
     margin:0 24px 70px;
     }
+    
+    .slide img{
+    max-width:100%;
+    max-height:70vh;
+    }
 
     .project-description{
-        grid-template-columns:1fr;
-        gap:30px;
-
-        padding:20px 24px 100px;
+               padding:20px 24px 100px;
     }
 
     footer{
