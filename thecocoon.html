@@ -148,15 +148,23 @@ header a:hover{
 /* ---------- Description ---------- */
 
 .project-description{
+    display:grid;
+    grid-template-columns:calc(50vw - 80px) 1fr;
+    column-gap:0;
+
     padding:80px 80px 140px;
-    max-width:1000px;
 }
 
 .project-description h2{
-    margin:0 0 55px;
+    margin:0;
+}
 
-    font-size:16px;
-    font-weight:500;
+.description-content p{
+    margin:0 0 30px;
+}
+
+.description-content p:last-child{
+    margin-bottom:0;
 }
 
 .project-description p{
@@ -226,7 +234,12 @@ footer a:hover{
     }
 
     .project-description{
-               padding:20px 24px 100px;
+    display:block;
+    padding:70px 24px 100px;
+    }
+
+    .project-description h2{
+    margin:0 0 35px;
     }
 
     footer{
