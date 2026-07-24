@@ -72,7 +72,6 @@ h2{
 }
 
 /* ---------- Projects ---------- */
-
 #projects{
     min-height:100vh;
 
@@ -91,7 +90,6 @@ h2{
     width:min(75vw, 1050px);
     margin:0 auto 100px;
 }
-
 
 .project-card a{
     display:block;
@@ -117,10 +115,16 @@ h2{
 .project-info{
     display:flex;
     justify-content:space-between;
-    align-items:baseline;
+    align-items:flex-start;
 
     width:100%;
     margin-top:8px;
+}
+
+.project-title{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
 }
 
 .project-info h3{
@@ -131,26 +135,30 @@ h2{
     letter-spacing:0;
     line-height:1.1;
 }
-.project-title{
-    display:flex;
-    flex-direction:column;
-}
 
 .project-subtitle{
     margin-top:3px;
 
+    font-family:Arial, sans-serif;
     font-size:13px;
+    font-style:normal;
     font-weight:400;
-    color:#777;
+    color:#666;
 
     letter-spacing:0;
     line-height:1.4;
 }
 
-.project-info p{
+.project-year{
+    margin:0;
+
+    font-family:Arial, sans-serif;
     font-size:15px;
+    font-style:normal;
     font-weight:400;
     color:#666;
+
+    line-height:1.1;
 }
 
 .project-card a:hover img{
@@ -302,16 +310,17 @@ h2{
 
             <div class="project-info">
 
-                <h3>The Floating Ground</h3>
+    <div class="project-title">
 
-                <p class="project-subtitle">빈터와 아이들</p>
+        <h3>The Floating Ground</h3>
 
-           </div>
+        <p class="project-subtitle">빈터와 아이들</p>
 
-           <p>2025</p>
+    </div>
 
-        </div>
+    <p class="project-year">2025</p>
 
+</div>
         </a>
 
     </article>
